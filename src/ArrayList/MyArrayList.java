@@ -45,14 +45,16 @@ public class MyArrayList {
     }
 
 
-    public void remove(int index) { //removeing the element
+    public int remove(int index) { //removeing the element
         if(index < 0 || index > last)
             throw new IndexOutOfBoundsException(STR."\{index} out of bounds for \{last}");
         ensureCapacity();
+        int temp = data[index];
         for (int i = index; i < last ; i++) {
             data[i] = data[i+1];
         }
         last--;
+        return temp;
     }
 
     public String toString(){ //printing the arraylist
